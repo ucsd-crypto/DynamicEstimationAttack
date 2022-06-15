@@ -1,19 +1,19 @@
 # Experiment Summary
 
-Code for validation of the attack on the IND-CPA^D security of Palisade's
+Code for validation of the attack on the $\mathsf{IND}-\mathsf{CPA}^D$ security of Palisade's
 implementation of CKKS.
 The attack proceeds by homomorphically evaluating the circuit
 
-C(x1, x2, x3, x4) = x1 * x2 + x3 * x4
+$$C(x_1, x_2, x_3, x_4) = x_1 * x_2 + x_3 * x_4$$
 
 on various inputs. These inputs are chosen such that
 
-1. C(x1, x2, x3, x4) = 0 for any such inputs when computed exactly, and
+1. $C(x_1, x_2, x_3, x_4) = 0$ for any such inputs when computed exactly, and
 2. the noise growth during homomorphic operations scales with the size of the
    inputs.
 
 As PALISADE's countermeasure chooses noise to add based on an estimate of the
-(input-dependent) noise within ciphertexts, we can break IND-CPA^D security via
+(input-dependent) noise within ciphertexts, we can break $\mathsf{IND}-\mathsf{CPA}^D$ security via
 examining the size of noise the countermeasure adds.
 
 # Building
@@ -38,5 +38,5 @@ This should build a binary `experiments`, which can be exected with
 ./experiments
 ```
 
-One can see directly that the decrypted output of C(x1,x2,x3,x4) can vary by
-several orders of magnitude, violating IND-CPA^D security.
+One can see directly that the decrypted output of $C(x_1,x_2,x_3,x_4)$ can vary by
+several orders of magnitude, violating $\mathsf{IND}-\mathsf{CPA}^D$ security.
